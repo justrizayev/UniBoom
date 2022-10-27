@@ -1,1 +1,1 @@
-web gunicorn django_app.wsgi:application --log-file -
+web gunicorn uniboom.wsgi:application --log-file -
