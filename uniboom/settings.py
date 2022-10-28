@@ -86,12 +86,8 @@ WSGI_APPLICATION = 'uniboom.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'uniboom_db',
-        'USER': 'uniboom_user',
-        'PASSWORD': 'root',
-        'HOST': 'uniboom.herokuapp.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
