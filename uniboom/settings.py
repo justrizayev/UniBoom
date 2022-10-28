@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'uniboom_db',
         'USER': 'uniboom_user',
         'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'HOST': 'uniboom.herokuapp.com',
         'PORT': '5432',
     }
 }
