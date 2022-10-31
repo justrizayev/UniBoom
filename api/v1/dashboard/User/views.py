@@ -23,6 +23,8 @@ class RegisterView(GenericAPIView):
             user.name = data['name']
             user.username = data['username']
             user.set_password(data['password'])
+            user.is_staff = True
+            user.is_admin = True
             user.save()
         except Exception as e:
             return Response({"ERROR": f'{e}'})
