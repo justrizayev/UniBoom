@@ -6,7 +6,9 @@ from uniboom.settings import PER_PAGE
 
 
 def format_pro(data):
+    
     l = [
+        ("id", data.id),
         ('rasm', data.img.url),
         ('name', data.name),
         ('description', data.description),
