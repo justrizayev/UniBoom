@@ -33,7 +33,10 @@ def paginated_pro(requests):
 
     result = []
     for x in range(offset, offset + limit):
-        result.append(format_pro(ctg[x]))
+        try:
+            result.append(format_pro(ctg[x]))
+        except:
+            pass
 
     pag = SqlPaginator(requests, page=page, per_page=PER_PAGE, count=len(ctg))
     meta = pag.get_paginated_response()
