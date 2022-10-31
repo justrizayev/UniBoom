@@ -24,7 +24,7 @@ def format_pro(data):
     return OrderedDict(l)
 
 
-def paginated_ctg(requests):
+def paginated_pro(requests):
     page = int(requests.GET.get('page', 1))
     ctg = Product.objects.all().order_by('-pk')
 
