@@ -40,3 +40,24 @@ class CategoryView(GenericAPIView):
         result = serializer.create(serializer.data)
 
         return Response(format_ctg(result))
+    
+    def put(self, requests, pk, *args, **kwargs):
+        data = requests.data
+        root = self.get_object(pk)
+        serialazer = self.get_serializer(data=data, partial=True, instance=root)
+        serialazer.is_valid(raise_exception=True)
+        result = serialazer.save()
+
+        return Response(format_ctg(result))
+
+    def delete(self, requests, pk, *args, **kwargs):
+        ctg = Category.objects.filter(pk=pk).first()
+        if not ctg:
+            result = {"ErrOr": "Bunday category mavjud emas!"}
+
+        else:
+            ctg.delete()
+            result = {"Success":"Category o'chirib tashlandi!"}
+
+        return Response(result)
+    
