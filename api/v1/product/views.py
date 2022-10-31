@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.v1.product.seralazer import ProductSerializer
-from api.v1.product.services import format_pro
+from api.v1.product.services import format_pro, paginated_pro
 from app_uniboom.models import Product
 from base.helper import BearerToken
 
@@ -30,9 +30,7 @@ class ProductView(GenericAPIView):
             else:
                 result = format_pro(pro)
         else:
-            result = []
-            for x in Product.objects.all():
-                result.append(format_pro(x))
+            result = paginated_pro(requests)
 
         return Response(result)
 
