@@ -30,9 +30,7 @@ class ProductView(GenericAPIView):
             else:
                 result = format_pro(pro)
         else:
-            result = []
-            for x in Product.objects.all():
-                result.append(format_pro(x))
+            result = format_pro(pro)
 
         return Response(result)
 
