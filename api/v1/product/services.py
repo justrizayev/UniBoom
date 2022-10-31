@@ -6,7 +6,7 @@ from uniboom.settings import PER_PAGE
 
 
 def format_pro(data):
-    return OrderedDict([
+    l = [
         ('rasm', data.img.url),
         ('name', data.name),
         ('description', data.description),
@@ -14,8 +14,12 @@ def format_pro(data):
         ('price', data.price),
         ('info', data.info),
         ("rasrochka", data.rasrochka),
-
-    ])
+    ]
+    try:
+        l.append(("ctg_id", data.ctg.name))
+    except:
+        pass
+    return OrderedDict(l)
 
 
 def paginated_ctg(requests):
